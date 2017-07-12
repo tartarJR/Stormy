@@ -16,6 +16,7 @@ import com.tatar.stormy.helper.ImageIdHelper;
 import com.tatar.stormy.helper.JSONHelper;
 import com.tatar.stormy.helper.UnixTimeConverter;
 import com.tatar.stormy.model.CurrentWeather;
+import com.tatar.stormy.model.Forecast;
 
 import org.json.JSONException;
 
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    private CurrentWeather currentWeather;
+    private Forecast forecast;
 
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.v(TAG, jsonData);
 
                         if (response.isSuccessful()) {
-                            currentWeather = JSONHelper.getCurrentDetails(jsonData);
+                            forecast = JSONHelper.parseForecastDetails(jsonData);
 
                             runOnUiThread(new Runnable() {
                                 @Override
@@ -137,12 +138,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateDisplay() {
+
+        CurrentWeather  currentWeather = forecast.getCurrentWeather();
+
         locationLabel.setText(currentWeather.getTimeZone());
         iconImageView.setImageResource(ImageIdHelper.getIconId(currentWeather.getIcon()));
         timeLabel.setText("At " + UnixTimeConverter.getFormattedTime(currentWeather.getTime(), currentWeather.getTimeZone()) + " it will be");
-        temperatureLabel.setText(Double.toString(currentWeather.getTemperature()));
-        humidityValue.setText(Double.toString(currentWeather.getHumidity()));
-        precipValue.setText(Integer.toString(currentWeather.getPrecipChance()) + "%");
+        temperatureLabel.setText(currentWeather.getTemperature() + "");
+        humidityValue.setText(currentWeather.getHumidity() + "");
+        precipValue.setText(currentWeather.getPrecipChance() + "%");
         summaryLabel.setText(currentWeather.getSummary());
     }
 

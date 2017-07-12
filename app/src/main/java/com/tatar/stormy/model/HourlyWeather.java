@@ -8,7 +8,7 @@ public class HourlyWeather {
 
     private long time;
     private String summary;
-    private double temparature;
+    private double temperature;
     private String icon;
     private String timeZone;
 
@@ -28,12 +28,12 @@ public class HourlyWeather {
         this.summary = summary;
     }
 
-    public double getTemparature() {
-        return temparature;
+    public double getTemperature() {
+        return temperature;
     }
 
-    public void setTemparature(double temparature) {
-        this.temparature = temparature;
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
     }
 
     public String getIcon() {

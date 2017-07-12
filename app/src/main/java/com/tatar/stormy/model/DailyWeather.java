@@ -7,7 +7,7 @@ package com.tatar.stormy.model;
 public class DailyWeather {
 
     private long time;
-    private String mSummary;
+    private String summary;
     private double temperatureMax;
     private String icon;
     private String timeZone;
@@ -20,12 +20,12 @@ public class DailyWeather {
         this.time = time;
     }
 
-    public String getmSummary() {
-        return mSummary;
+    public String getSummary() {
+        return summary;
     }
 
-    public void setmSummary(String mSummary) {
-        this.mSummary = mSummary;
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
     public double getTemperatureMax() {
