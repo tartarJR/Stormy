@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateDisplay() {
 
-        CurrentWeather  currentWeather = forecast.getCurrentWeather();
+        CurrentWeather currentWeather = forecast.getCurrentWeather();
 
         locationLabel.setText(currentWeather.getTimeZone());
         iconImageView.setImageResource(ImageIdHelper.getIconId(currentWeather.getIcon()));
