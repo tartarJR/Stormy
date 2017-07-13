@@ -1,9 +1,11 @@
 package com.tatar.stormy.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -24,11 +26,14 @@ import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+
+import static com.tatar.stormy.R.id.hourlyButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -165,4 +170,11 @@ public class MainActivity extends AppCompatActivity {
         AlertDialogFragment alertDialog = new AlertDialogFragment();
         alertDialog.show(getFragmentManager(), getString(R.string.error_dialog_tag));
     }
+
+    @OnClick(R.id.dailyButton)
+    public void startDailyActivity(View view) {
+        Intent intent = new Intent(MainActivity.this, DailyForecastActivity.class);
+        startActivity(intent);
+    }
+
 }
