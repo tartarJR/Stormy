@@ -1,5 +1,9 @@
 package com.tatar.stormy.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 /**
  * Created by emuoztu on 7/12/2017.
  */
@@ -28,8 +32,8 @@ public class DailyWeather {
         this.summary = summary;
     }
 
-    public double getTemperatureMax() {
-        return temperatureMax;
+    public int getTemperatureMax() {
+        return (int) Math.round(temperatureMax);
     }
 
     public void setTemperatureMax(double temperatureMax) {
@@ -50,5 +54,13 @@ public class DailyWeather {
 
     public void setTimeZone(String timeZone) {
         this.timeZone = timeZone;
+    }
+
+    public String getDayOfTheWeek() {
+        SimpleDateFormat formatter = new SimpleDateFormat("EEEE");
+        formatter.setTimeZone(TimeZone.getTimeZone(timeZone));
+        Date dateTime = new Date(time * 1000);
+
+        return formatter.format(dateTime);
     }
 }

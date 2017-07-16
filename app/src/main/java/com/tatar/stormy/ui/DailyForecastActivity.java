@@ -5,22 +5,26 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
 import com.tatar.stormy.R;
+import com.tatar.stormy.adapter.DailyForecastAdapter;
+import com.tatar.stormy.model.DailyWeather;
 
 public class DailyForecastActivity extends ListActivity {
 
-    String[] daysOfTheWeek = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+    private DailyWeather[] dailyWeatherData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily_forecast);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+        DailyForecastAdapter adapter = new DailyForecastAdapter(DailyForecastActivity.this, dailyWeatherData);
+
+        /*ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 DailyForecastActivity.this,
                 android.R.layout.simple_list_item_1,
                 daysOfTheWeek
         );
 
-        setListAdapter(adapter);
+        setListAdapter(adapter);*/
     }
 }
