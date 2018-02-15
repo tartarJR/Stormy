@@ -9,7 +9,7 @@ public class HttpConfig {
     public static final double LATITUDE = 37.8267;
     public static final double LONGITUDE = -122.4233;
 
-    public static final String API_KEY = "3f20d8ecef4118f50e100c9b3362d355";
+    public static final String API_KEY = ""; // ENTERY OUR API KEY HERE
 
     public static final String FORECAST_URL = "https://api.darksky.net/forecast/" + API_KEY + "/" + LATITUDE + "," + LONGITUDE;
 
