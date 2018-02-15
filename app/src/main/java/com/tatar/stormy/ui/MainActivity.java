@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -32,8 +31,6 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
-import static com.tatar.stormy.R.id.hourlyButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -101,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
                             toggleRefresh();
                         }
                     });
+
+                    Log.e(TAG, "IOException is caught: ", e);
 
                     alertUserAboutError();
                 }

@@ -2,7 +2,6 @@ package com.tatar.stormy.ui;
 
 import android.app.ListActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 
 import com.tatar.stormy.R;
 import com.tatar.stormy.adapter.DailyForecastAdapter;
