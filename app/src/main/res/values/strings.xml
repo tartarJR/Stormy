@@ -7,5 +7,15 @@
     <string name="error_dialog_message">There was an error. Please try again.</string>
     <string name="error_dialog_pos_button_text">OK</string>
     <string name="network_unavailable_message">Network is unavailable, please try again later.</string>
+    <string name="no_daily_data_msg">There ain\'t no data to show..</string>
+    <string name="list_item_circle_img_desc">Circle image of daily forecast list item</string>
+    <string name="list_item_icon_img_desc">Icon image of daily forecast list item</string>
+    <string name="weekly_btn_text">WEEKLY</string>
+    <string name="hourly_btn_text">HOURLY</string>
+    <string name="humidity_txt">HUMIDITY</string>
+    <string name="refresh_img_descr">refresh img view</string>
+    <string name="icon_img_descr">icon img view</string>
+    <string name="degree_img_descr">degree image view</string>
+    <string name="rain_txt">RAIN?</string>
 
 </resources>

@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.summaryLabel)
     TextView summaryLabel;
 
-    //TODO LOTTA DI NEEDED IN HERE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
