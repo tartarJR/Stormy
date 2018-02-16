@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     public static final String DAILY_FORECAST = "daily_forecast";
+    public static final String HOURLY_FORECAST = "hourly_forecast";
 
     private Forecast forecast;
 
@@ -183,6 +184,13 @@ public class MainActivity extends AppCompatActivity {
     public void startDailyActivity(View view) {
         Intent intent = new Intent(MainActivity.this, DailyForecastActivity.class);
         intent.putExtra(DAILY_FORECAST, forecast.getDailyWeather());
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.hourlyButton)
+    public void startHourlyActivity(View view) {
+        Intent intent = new Intent(MainActivity.this, HourlyForecastActivity.class);
+        intent.putExtra(HOURLY_FORECAST, forecast.getHourlyWeather());
         startActivity(intent);
     }
 
