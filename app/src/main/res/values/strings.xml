@@ -20,5 +20,6 @@
     <string name="fake_location">Fort Lauderdale, FL</string>
     <string name="this_week_label">This Week\'s Weather</string>
     <string name="today_label">Today</string>
+    <string name="hourly_item_icon_img_descr">icon image</string>
 
 </resources>
