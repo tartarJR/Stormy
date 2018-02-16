@@ -50,9 +50,9 @@ public class DailyForecastAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(context).inflate(R.layout.daily_list_item, null);
 
             viewHolder = new ViewHolder();
-            viewHolder.iconImageView = (ImageView) convertView.findViewById(R.id.iconImageView);
-            viewHolder.temperatureLabel = (TextView) convertView.findViewById(R.id.temperatureLabel);
-            viewHolder.dayLabel = (TextView) convertView.findViewById(R.id.dayNameLabel);
+            viewHolder.iconImageView = convertView.findViewById(R.id.iconImageView);
+            viewHolder.temperatureLabel = convertView.findViewById(R.id.temperatureLabel);
+            viewHolder.dayLabel = convertView.findViewById(R.id.dayNameLabel);
 
             convertView.setTag(viewHolder);
         } else {
@@ -63,7 +63,13 @@ public class DailyForecastAdapter extends BaseAdapter {
 
         viewHolder.iconImageView.setImageResource(ImageIdHelper.getIconId(dayDailyWeather.getIcon()));
         viewHolder.temperatureLabel.setText(dayDailyWeather.getTemperatureMax() + "");
-        viewHolder.dayLabel.setText(dayDailyWeather.getDayOfTheWeek());
+
+        if (position == 0) {
+            viewHolder.dayLabel.setText(R.string.today_label);
+        } else {
+            viewHolder.dayLabel.setText(dayDailyWeather.getDayOfTheWeek());
+        }
+
 
         return convertView;
     }

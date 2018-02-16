@@ -11,6 +11,6 @@ public class HttpConfig {
 
     public static final String API_KEY = ""; // ENTERY OUR API KEY HERE
 
-    public static final String FORECAST_URL = "https://api.darksky.net/forecast/" + API_KEY + "/" + LATITUDE + "," + LONGITUDE;
+    public static final String FORECAST_URL = "https://api.darksky.net/forecast/" + API_KEY + "/" + LATITUDE + "," + LONGITUDE + "?units=si";
 
 }

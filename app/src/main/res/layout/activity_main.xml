@@ -54,7 +54,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iconImageView"
         app:layout_constraintVertical_bias="0.38"
-        tools:text="Fort Lauderdale, FL" />
+        android:text="@string/fake_location" />
 
     <ImageView
         android:id="@+id/iconImageView"

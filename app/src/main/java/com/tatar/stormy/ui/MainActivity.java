@@ -31,10 +31,13 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.logging.HttpLoggingInterceptor;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+
+    public static final String DAILY_FORECAST = "daily_forecast";
 
     private Forecast forecast;
 
@@ -42,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar progressBar;
     @BindView(R.id.refreshImageView)
     ImageView refreshImageView;
-    @BindView(R.id.locationLabel)
-    TextView locationLabel;
     @BindView(R.id.iconImageView)
     ImageView iconImageView;
     @BindView(R.id.timeLabel)
@@ -78,7 +79,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void getForecast() {
 
-        OkHttpClient client = new OkHttpClient();
+        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+            @Override
+            public void log(String message) {
+                Log.i(TAG, message);
+            }
+        });
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        OkHttpClient client = new OkHttpClient()
+                .newBuilder()
+                .addInterceptor(httpLoggingInterceptor)
+                .build();
 
         ConnectivityHelper connectivityHelper = new ConnectivityHelper(getApplicationContext());
 
@@ -114,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
 
                     try {
                         String jsonData = response.body().string();
-                        Log.v(TAG, jsonData);
 
                         if (response.isSuccessful()) {
                             forecast = JSONHelper.parseForecastDetails(jsonData);
@@ -144,7 +155,6 @@ public class MainActivity extends AppCompatActivity {
 
         CurrentWeather currentWeather = forecast.getCurrentWeather();
 
-        locationLabel.setText(currentWeather.getTimeZone());
         iconImageView.setImageResource(ImageIdHelper.getIconId(currentWeather.getIcon()));
         timeLabel.setText("At " + UnixTimeConverter.getFormattedTime(currentWeather.getTime(), currentWeather.getTimeZone()) + " it will be");
         temperatureLabel.setText(currentWeather.getTemperature() + "");
@@ -172,6 +182,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.dailyButton)
     public void startDailyActivity(View view) {
         Intent intent = new Intent(MainActivity.this, DailyForecastActivity.class);
+        intent.putExtra(DAILY_FORECAST, forecast.getDailyWeather());
         startActivity(intent);
     }
 

@@ -17,5 +17,8 @@
     <string name="icon_img_descr">icon img view</string>
     <string name="degree_img_descr">degree image view</string>
     <string name="rain_txt">RAIN?</string>
+    <string name="fake_location">Fort Lauderdale, FL</string>
+    <string name="this_week_label">This Week\'s Weather</string>
+    <string name="today_label">Today</string>
 
 </resources>
