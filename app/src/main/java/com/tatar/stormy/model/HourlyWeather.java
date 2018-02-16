@@ -15,6 +15,9 @@ public class HourlyWeather implements Parcelable {
     private String icon;
     private String timeZone;
 
+    public HourlyWeather() {
+    }
+
     protected HourlyWeather(Parcel in) {
         time = in.readLong();
         summary = in.readString();
