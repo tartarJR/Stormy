@@ -3,6 +3,11 @@ package com.tatar.stormy.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.tatar.stormy.helper.ImageIdHelper;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by emuoztu on 7/12/2017.
  */
@@ -54,8 +59,8 @@ public class HourlyWeather implements Parcelable {
         this.summary = summary;
     }
 
-    public double getTemperature() {
-        return temperature;
+    public int getTemperature() {
+        return (int) Math.round(temperature);
     }
 
     public void setTemperature(double temperature) {
@@ -64,6 +69,10 @@ public class HourlyWeather implements Parcelable {
 
     public String getIcon() {
         return icon;
+    }
+
+    public int getIconId() {
+        return ImageIdHelper.getIconId(icon);
     }
 
     public void setIcon(String icon) {
@@ -76,6 +85,13 @@ public class HourlyWeather implements Parcelable {
 
     public void setTimeZone(String timeZone) {
         this.timeZone = timeZone;
+    }
+
+    public String getHour() {
+        SimpleDateFormat format = new SimpleDateFormat("h a");
+        Date date = new Date(time * 1000);
+
+        return format.format(date);
     }
 
     @Override
