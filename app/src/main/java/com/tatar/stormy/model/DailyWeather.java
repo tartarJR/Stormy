@@ -54,6 +54,14 @@ public class DailyWeather implements Parcelable {
         this.summary = summary;
     }
 
+    public String getSummary() {
+        return summary;
+    }
+
+    public String getTimeZone() {
+        return timeZone;
+    }
+
     public int getTemperatureMax() {
         return (int) Math.round(temperatureMax);
     }
