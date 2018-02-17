@@ -26,6 +26,7 @@
         <activity
             android:name=".ui.DailyForecastActivity"
             android:parentActivityName=".ui.MainActivity">
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -36,11 +37,13 @@
         <activity
             android:name=".ui.HourlyForecastActivity"
             android:parentActivityName=".ui.MainActivity">
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ui.MainActivity" />
         </activity>
+        <activity android:name=".ui.DailyForecastActivity2"></activity>
     </application>
 
 </manifest>
