@@ -54,15 +54,15 @@ public class HourlyForecastAdapter extends RecyclerView.Adapter<HourlyForecastAd
 
             hourLabel = itemView.findViewById(R.id.hourTextView);
             iconImage = itemView.findViewById(R.id.iconImageView);
-            summaryLabel = itemView.findViewById(R.id.temperatureTextView);
-            temperatureLabel = itemView.findViewById(R.id.summaryTextView);
+            summaryLabel = itemView.findViewById(R.id.summaryTextView);
+            temperatureLabel = itemView.findViewById(R.id.temperatureTextView);
         }
 
         public void bindHour(HourlyWeather hourlyWeather) {
             hourLabel.setText(hourlyWeather.getHour());
             iconImage.setImageResource(hourlyWeather.getIconId());
             summaryLabel.setText(hourlyWeather.getSummary());
-            temperatureLabel.setText(hourlyWeather.getTemperature());
+            temperatureLabel.setText(hourlyWeather.getTemperature() + "");
         }
     }
 }
